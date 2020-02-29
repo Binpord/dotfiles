@@ -1,0 +1,10 @@
+[user]
+    name = Shiyanov Vadim
+    email = vadimsh853@gmail.com
+[credential "https://github.com"]
+    username = Binpord
+[core]
+    excludesfile = ~/.gitignore_global
+    editor = vim
+[credential]
+	helper = osxkeychain

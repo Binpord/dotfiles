@@ -1,0 +1,39 @@
+#!/bin/sh
+
+system_type=$(uname -s)
+
+if [ "$system_type" = "Darwin" ]; then
+
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
+
+  if [ -f "$HOME/.Brewfile" ]; then
+    echo "Updating homebrew bundle"
+    brew bundle --global
+  fi
+
+  if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    echo "Installing oh-my-zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    rm "$HOME/.zshrc" && mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
+
+    echo "Cloning zsh-autosuggestions"
+    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+
+    echo "Cloning zsh-syntax-highlighting"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+  fi
+
+  if command -v vim >/dev/null 2>&1; then
+    echo "Bootstraping Vim"
+    vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  fi
+
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Installing Tmux Plugin Manager and plugins"
+    git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm" && $HOME/.tmux/plugins/tpm/bin/install_plugins
+  fi
+
+fi

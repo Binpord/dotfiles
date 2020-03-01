@@ -7,9 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="vim"
 export KEYTIMEOUT=1
 export ZSH_THEME="robbyrussell"
-if [[ -n "$SSH_TTY" ]]; then
-    export ZSH_TMUX_AUTOSTART=true
-fi
+export ZSH_TMUX_AUTOSTART=true
 
 #
 # Tmux ssh agent forwarding fix
@@ -31,7 +29,7 @@ source $ZSH/oh-my-zsh.sh
 #
 if [[ "$(uname)" == "Darwin" ]]; then
     alias ls="gls -alh --color --group-directories-first"
-    alias vim='mvim -v'
+    alias vim='nvim'
 elif [[ "$(uname)" == "Linux" ]]; then
     alias ls="ls -alh --color --group-directories-first"
 fi

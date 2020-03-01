@@ -41,6 +41,6 @@ alias l="ls"
 #
 # Sources
 #
-([ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh) || true
-([ -f $HOME/.custom.zsh ] && source $HOME/.custom.zsh) || true
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh || true
+[ -f $HOME/.custom.zsh ] && source $HOME/.custom.zsh || true
 

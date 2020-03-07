@@ -7,7 +7,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="vim"
 export KEYTIMEOUT=1
 export ZSH_THEME="robbyrussell"
-export ZSH_TMUX_AUTOSTART=true
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+    export ZSH_TMUX_AUTOSTART=true
+fi
 
 #
 # Tmux ssh agent forwarding fix

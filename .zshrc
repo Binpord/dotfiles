@@ -23,7 +23,7 @@ export SSH_AUTH_SOCK=$SOCK
 #
 # Oh-my-zsh
 #
-export plugins=(zsh-autosuggestions tmux git zsh-syntax-highlighting)
+export plugins=(zsh-autosuggestions tmux git zsh-syntax-highlighting vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 #

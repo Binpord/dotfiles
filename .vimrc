@@ -1,5 +1,5 @@
 "
-" General settings
+" vim-plug
 "
 set nocompatible
 filetype plugin on
@@ -7,11 +7,7 @@ syntax on
 set wrap
 set encoding=utf8
 
-"
-" vim-plug
-"
-
-" download vim-plug if missing
+" Download vim-plug if missing
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * silent! PlugInstall
@@ -24,8 +20,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Git integration
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
-" Fzf (also provides Ag commands)
+" Fzf (also provides Ag command)
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' } | Plug 'junegunn/fzf.vim'
 
 " NERDTree
@@ -34,12 +31,18 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 
-" Other
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Vim-Tmux integration
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'epmatsw/ag.vim'
-Plug 'morhetz/gruvbox'
+
+" The NERD Commenter
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-endwise'
+
+" Gruvbox
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -79,19 +82,45 @@ set mouse=a
 set hidden
 set autoread
 
-" Disable endwise mapping to not break coc.nvim (I don't even use them anyways)
-let g:endwise_no_mappings=1
+" Make backspace work like in most other apps
+set backspace=2
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
+" Paste toggle
+set pastetoggle=<F2>
+
+" Russian keymap
+if has('mac')
+  set keymap=russian-jcukenmac
+else
+  set keymap=russian-jcukenwin
+endif
+set iminsert=0
+set imsearch=0
+
+" Colorscheme
+set background=dark
+colorscheme gruvbox
+
+" Render tabs and spaces
+set listchars=space:•,tab:-->
+set list
+
+" Update time
 set updatetime=300
 
-" Don't pass messages to |ins-completion-menu|.
+" Always show sign column
+set signcolumn=yes
+
+" Disable "Pattern not found" messages
 set shortmess+=c
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
+"
+" Plugin Settings
+"
+
+" the_silver_searcher
+nnoremap <silent> <c-f> :Ag<CR>
+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -190,11 +219,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Mappings using CoCList:
 " Show all diagnostics.
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
@@ -221,38 +245,23 @@ let g:coc_global_extensions=[
       \ 'coc-clangd',
       \ ]
 
-" gruvbox
-set background=dark
-colorscheme gruvbox
-
-" the_silver_searcher
-if executable('ag')
-  let g:ag_prg = 'ag --nogroup --nocolor --column --vimgrep'
-endif
-
-" Make backspace work like in most other apps
-set backspace=2
-
-" Paste toggle
-set pastetoggle=<F2>
-
-" Russian keymap
-if has('mac')
-  set keymap=russian-jcukenmac
-else
-  set keymap=russian-jcukenwin
-endif
-set iminsert=0
-set imsearch=0
-
 " fzf
-nnoremap <c-p> :Files<CR>
+nnoremap <silent> <c-p> :Files<CR>
 
 " NERDTree
-nnoremap <c-n> :NERDTreeToggle<CR>
+nnoremap <silent> <c-b> :NERDTreeToggle<CR>
+
+" Airline
+let g:airline_powerline_fonts=1
+let g:airline_theme='gruvbox'
+
+" The NERD Commenter
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDDefaultAlign = 'left'
 
 " noh
-nnoremap <leader>' :noh<CR>
+nnoremap <silent> <leader>' :noh<CR>
 
 " Swap j/k and gj/gk
 nnoremap k gk
@@ -262,6 +271,22 @@ nnoremap gj j
 
 " No more anoying esc finding
 inoremap jj <ESC>
+
+" Disable arrow movement, resize splits instead.
+nnoremap <silent> <Up> :resize +2<CR>
+nnoremap <silent> <Down> :resize -2<CR>
+nnoremap <silent> <Left> :vertical resize +2<CR>
+nnoremap <silent> <Right> :vertical resize -2<CR>
+
+" Remove trailing whitespace
+nnoremap <silent> <Leader>w :let _save_pos=getpos(".") <Bar>
+    \ :let _s=@/ <Bar>
+    \ :%s/\s\+$//e <Bar>
+    \ :let @/=_s <Bar>
+    \ :nohl <Bar>
+    \ :unlet _s<Bar>
+    \ :call setpos('.', _save_pos)<Bar>
+    \ :unlet _save_pos<CR><CR>
 
 "
 " Commands

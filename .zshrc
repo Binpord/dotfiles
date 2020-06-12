@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="vim"
 export KEYTIMEOUT=1
 export ZSH_THEME="robbyrussell"
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
     export ZSH_TMUX_AUTOSTART=true
 fi
 

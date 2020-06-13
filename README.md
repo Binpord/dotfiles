@@ -6,6 +6,6 @@ This is my repository for dotfiles. It is supposed to work with [Yet Another Dot
 
 In order to minimize the effort I added installation script (located in `tools/install.sh`), so if you are running macOS, you can setup my dotfiles as simple as
 ```
-sh -c "curl -fsSL https://raw.githubusercontent.com/Binpord/dotfiles/master/tools/install.sh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Binpord/dotfiles/master/tools/install.sh)"
 ```
 Script currently supports **only macOS**, but I will probably add support for linux distributions when the time comes.

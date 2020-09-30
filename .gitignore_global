@@ -10,3 +10,4 @@ lib*
 *.aux
 *.log
 *.bib.*
+.vscode

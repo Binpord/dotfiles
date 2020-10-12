@@ -11,3 +11,5 @@ lib*
 *.log
 *.bib.*
 .vscode
+.venv
+tags

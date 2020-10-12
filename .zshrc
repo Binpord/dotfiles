@@ -38,6 +38,8 @@ fi
 
 alias l="ls"
 
+alias venv="source ./.venv/bin/activate"
+
 #
 # Sources
 #

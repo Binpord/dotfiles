@@ -21,6 +21,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 " UltiSnips
 Plug 'SirVer/ultisnips'
 
+" SuperTab for YouCompleteMe-Ultisnips compatibility
+Plug 'ervandew/supertab'
+
 " delimitMate
 Plug 'Raimondi/delimitMate'
 
@@ -140,10 +143,15 @@ let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt=0
 set completeopt-=preview
 
+" YouCompleteMe-UltiSnips compatibility using SuperTab
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
 " UltiSnips
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips']
 
 " delimitMate

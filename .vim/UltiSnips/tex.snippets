@@ -1,0 +1,45 @@
+snippet skeleton
+\documentclass{article}
+
+\usepackage[a4paper, margin=2cm]{geometry}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{parskip}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\begin{document}
+
+\title{$1}
+\author{${2:Шиянов Вадим}}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet env
+\begin{${1:enumerate}}
+	$0
+\end{$1}
+endsnippet
+
+snippet matrix
+\left(
+\begin{matrix}
+	$0
+\end{matrix}
+\right)
+endsnippet
+
+snippet spliteq
+\begin{equation*}
+\begin{split}
+	$0
+\end{split}
+\end{equation*}
+endsnippet

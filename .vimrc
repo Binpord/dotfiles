@@ -4,7 +4,6 @@
 set nocompatible
 filetype plugin on
 syntax on
-set wrap
 set encoding=utf8
 
 " Download vim-plug if missing
@@ -23,6 +22,9 @@ Plug 'SirVer/ultisnips'
 
 " SuperTab for YouCompleteMe-Ultisnips compatibility
 Plug 'ervandew/supertab'
+
+" vimtex
+Plug 'lervag/vimtex'
 
 " delimitMate
 Plug 'Raimondi/delimitMate'
@@ -70,6 +72,13 @@ call plug#end()
 " Lines
 set number
 set ruler
+
+" Text wrap
+set wrap
+set linebreak
+set breakindent
+set breakindentopt=shift:2,min:40,sbr
+set showbreak=⤥
 
 " Tabulation
 filetype plugin indent on
@@ -119,6 +128,7 @@ set imsearch=0
 
 " Colorscheme
 set background=dark
+let g:gruvbox_italic=0
 colorscheme gruvbox
 
 " Update time
@@ -127,7 +137,7 @@ set updatetime=300
 " Always show sign column
 set signcolumn=yes
 
-" Disable "Pattern not found" messages
+" Disable 'Pattern not found' messages
 set shortmess+=c
 
 " Render tabs and spaces
@@ -149,10 +159,18 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips']
+
+" vimtex
+let g:tex_flavor='latex'
+" let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='skim'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " delimitMate
 let g:delimitMate_expand_cr=1
@@ -189,9 +207,6 @@ nnoremap j gj
 nnoremap gk k
 nnoremap gj j
 
-" No more anoying esc finding
-inoremap jj <ESC>
-
 " Disable arrow movement, resize splits instead.
 nnoremap <silent> <M-Up> :resize +2<CR>
 nnoremap <silent> <M-Down> :resize -2<CR>
@@ -199,7 +214,7 @@ nnoremap <silent> <M-Left> :vertical resize +2<CR>
 nnoremap <silent> <M-Right> :vertical resize -2<CR>
 
 " Remove trailing whitespace
-nnoremap <silent> <Leader>w :let _save_pos=getpos(".") <Bar>
+nnoremap <silent> <Leader>w :let _save_pos=getpos('.') <Bar>
     \ :let _s=@/ <Bar>
     \ :%s/\s\+$//e <Bar>
     \ :let @/=_s <Bar>

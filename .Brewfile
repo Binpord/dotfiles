@@ -12,3 +12,4 @@ brew "fzf"
 brew "skim"
 
 cask "font-fira-code"
+cask "iterm2"

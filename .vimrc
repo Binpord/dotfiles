@@ -6,6 +6,9 @@ filetype plugin on
 syntax on
 set encoding=utf8
 
+" specify nvim python so that I can use vim whilst in venv
+let g:python3_host_prog='/usr/local/bin/python3'
+
 " Download vim-plug if missing
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -15,7 +18,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " YouCompleteMe
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': g:python3_host_prog . ' install.py --clang-completer' }
 
 " UltiSnips
 Plug 'SirVer/ultisnips'

@@ -6,6 +6,7 @@ export LANG="en_US.UTF-8"
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="vim"
 export KEYTIMEOUT=1
+export DISABLE_AUTO_TITLE=true
 export ZSH_THEME="robbyrussell"
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
     export ZSH_TMUX_AUTOSTART=true
@@ -40,9 +41,10 @@ alias l="ls"
 
 alias venv="source ./.venv/bin/activate"
 
+alias lldb="lldb -s ~/.lldbrc"
+
 #
 # Sources
 #
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh || true
 [ -f $HOME/.custom.zsh ] && source $HOME/.custom.zsh || true
-

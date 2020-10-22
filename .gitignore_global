@@ -13,3 +13,4 @@ lib*
 .vscode
 .venv
 tags
+.pdbrc

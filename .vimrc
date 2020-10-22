@@ -105,7 +105,7 @@ set wcm=<TAB>
 
 " Mouse
 set mousehide
-set mouse=
+set mouse=a
 
 " Buffers
 set hidden
@@ -155,6 +155,7 @@ set list
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt=0
 set completeopt-=preview
+nnoremap <silent> gt :YcmCompleter GoToDefinition<CR>
 
 " YouCompleteMe-UltiSnips compatibility using SuperTab
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -200,6 +201,10 @@ let g:airline_theme='gruvbox'
 let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
 let g:NERDDefaultAlign='left'
+
+" Don't copy deleted text
+nnoremap dd "_dd
+vnoremap d "_d
 
 " noh
 nnoremap <silent> <leader>' :noh<CR>

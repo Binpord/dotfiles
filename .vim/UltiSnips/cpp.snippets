@@ -1,12 +1,45 @@
 snippet struct "struct definition" b
 struct ${1:name} {
-    $0
+	$0
 };
 endsnippet
 
 snippet class "class definition" b
 class ${1:name} {
 public:
-    $0
+	$0
+
+private:
+	$2
 };
+endsnippet
+
+snippet random
+std::random_device rd;
+std::mt19937 gen(rd());
+// generate via std::uniform_int_distribution dist(1, 6); dist(gen);
+endsnippet
+
+snippet shad_skeleton
+#include <iostream>
+#include <vector>
+
+std::vector<int> ReadNumbers(std::istream &input_stream = std::cin) {
+	size_t length;
+	input_stream >> length;
+	std::vector<int> numbers(length);
+	for (int &number : numbers) {
+		input_stream >> number;
+	}
+	return numbers;
+}
+
+int main() {
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+
+	$0
+
+	return 0;
+}
 endsnippet

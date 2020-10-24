@@ -170,7 +170,6 @@ let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips']
 
 " vimtex
 let g:tex_flavor='latex'
-" let g:vimtex_view_method='zathura'
 let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
@@ -202,18 +201,16 @@ let g:NERDSpaceDelims=1
 let g:NERDTrimTrailingWhitespace=1
 let g:NERDDefaultAlign='left'
 
-" Don't copy deleted text
-nnoremap dd "_dd
-vnoremap d "_d
-
 " noh
 nnoremap <silent> <leader>' :noh<CR>
 
-" Swap j/k and gj/gk
+" Jump visual lines, not physical
 nnoremap k gk
 nnoremap j gj
 nnoremap gk k
 nnoremap gj j
+nnoremap 0 g0
+nnoremap $ g$
 
 " Disable arrow movement, resize splits instead.
 nnoremap <silent> <M-Up> :resize +2<CR>

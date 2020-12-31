@@ -32,15 +32,25 @@ source $ZSH/oh-my-zsh.sh
 #
 if [[ "$(uname)" == "Darwin" ]]; then
     alias ls="gls -alh --color --group-directories-first"
-    alias vim='nvim'
+    alias vim="nvim"
 elif [[ "$(uname)" == "Linux" ]]; then
     alias ls="ls -alh --color --group-directories-first"
 fi
 
 alias l="ls"
+alias c="clear"
+alias e="exit"
+
+alias v="vim"
+alias r="ranger"
+alias y="yadm"
+alias ys="yadm status"
+alias ya="yadm add"
+alias yc="yadm commit"
+alias yp="yadm push"
+alias yd="yadm diff"
 
 alias venv="source ./.venv/bin/activate"
-
 alias lldb="lldb -s ~/.lldbrc"
 
 #

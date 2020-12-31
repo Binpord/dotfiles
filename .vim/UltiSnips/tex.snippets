@@ -6,10 +6,14 @@ snippet skeleton
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[russian]{babel}
+\usepackage{graphicx}
 
 \usepackage{parskip}
 
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+\DeclareMathOperator{\det}{det}
+\DeclareMathOperator{\tr}{tr}
 
 \begin{document}
 
@@ -48,4 +52,38 @@ snippet spliteq
 	$0
 \end{split}
 \end{equation*}
+endsnippet
+
+snippet image
+\begin{center}
+	\includegraphics[width=0.8\textwidth]{$0}
+\end{center}
+endsnippet
+
+snippet rbr
+\left( $0 \right)
+endsnippet
+
+snippet sbr
+\left[ $0 \right]
+endsnippet
+
+snippet cbr
+\left\{ $0 \right\}
+endsnippet
+
+snippet -> "right arrow" i
+\rightarrow
+endsnippet
+
+snippet => "Right arrow" i
+\Rightarrow
+endsnippet
+
+snippet >= "greater than or equal" i
+\geqslant
+endsnippet
+
+snippet >= "less than of equal" i
+\leqslant
 endsnippet

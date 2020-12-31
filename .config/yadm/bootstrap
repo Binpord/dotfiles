@@ -28,6 +28,7 @@ if [ "$system_type" = "Darwin" ]; then
 
   if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
+    curl --create-dirs -fsSLo "$HOME/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plugvim"
     vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
   fi
 

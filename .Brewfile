@@ -9,6 +9,7 @@ brew "node"
 brew "cmake"
 brew "the_silver_searcher"
 brew "fzf"
+brew "ranger"
 
 cask "font-fira-code"
 cask "iterm2"

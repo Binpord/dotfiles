@@ -40,8 +40,12 @@ fi
 alias l="ls"
 alias c="clear"
 alias e="exit"
+alias s="ssh"
 
 alias v="vim"
+alias vz="vim $HOME/.zshrc"
+alias vv="vim $HOME/.vimrc"
+
 alias r="ranger"
 alias y="yadm"
 alias ys="yadm status"
@@ -49,6 +53,9 @@ alias ya="yadm add"
 alias yc="yadm commit"
 alias yp="yadm push"
 alias yd="yadm diff"
+
+alias py="python3"
+alias ipy="ipython"
 
 alias venv="source ./.venv/bin/activate"
 alias lldb="lldb -s ~/.lldbrc"

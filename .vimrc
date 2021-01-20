@@ -30,7 +30,6 @@ Plug 'tpope/vim-endwise'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -43,12 +42,15 @@ Plug 'junegunn/fzf.vim'
 " Languages support
 "
 
-" LaTeX
-Plug 'lervag/vimtex'
-
 " Python
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-python/python-syntax'
+
+" LaTeX
+Plug 'lervag/vimtex'
+
+" Markdown
+Plug 'plasticboy/vim-markdown'
 
 "
 " Looks
@@ -84,6 +86,9 @@ let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
 let g:vimtex_imaps_enabled=0
 
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
+
 " Python syntax
 let g:python_highlight_all=1
 
@@ -115,6 +120,13 @@ nnoremap gk k
 nnoremap gj j
 nnoremap 0 g0
 nnoremap $ g$
+
+vnoremap k gk
+vnoremap j gj
+vnoremap gk k
+vnoremap gj j
+vnoremap 0 g0
+vnoremap $ g$
 
 " Resize splits with Meta-Arrow
 nnoremap <silent> <M-Up> :resize +2<CR>
@@ -189,9 +201,6 @@ set imsearch=0
 
 " Update time
 set updatetime=300
-
-" Always show sign column
-set signcolumn=yes
 
 " Disable 'Pattern not found' messages
 set shortmess+=c

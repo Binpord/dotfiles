@@ -8,3 +8,5 @@
     editor = nvim
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = main

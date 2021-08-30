@@ -1,3 +1,6 @@
+" specify nvim python so that I can use vim whilst in venv
+let g:python3_host_prog='/Users/binpord/miniconda3/envs/pynvim/bin/python'
+
 "
 " vim-plug
 "
@@ -8,15 +11,8 @@ set encoding=utf8
 
 call plug#begin('~/.vim/plugged')
 
-"
-" Utility
-"
-
 " Tab completion
 Plug 'ervandew/supertab'
-
-" Snippet engine
-Plug 'SirVer/ultisnips'
 
 " Auto insert enclosing brackets
 Plug 'Raimondi/delimitMate'
@@ -24,81 +20,16 @@ Plug 'Raimondi/delimitMate'
 " Auto insert fi/done in bash scripts
 Plug 'tpope/vim-endwise'
 
-"
-" Tools integration
-"
-
-" Git
-Plug 'tpope/vim-fugitive'
-
-" Tmux
-Plug 'christoomey/vim-tmux-navigator'
-
-" FZF and the_sealver_searcher
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-"
-" Languages support
-"
-
-" Python
-Plug 'Vimjas/vim-python-pep8-indent'
-Plug 'vim-python/python-syntax'
-
-" LaTeX
-Plug 'lervag/vimtex'
-
-" Markdown
-Plug 'plasticboy/vim-markdown'
-
-"
-" Looks
-"
-
-" Dracula colorscheme
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-" Airline status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
 "
 " Plugin Settings
 "
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips']
-
 " delimitMate
 let g:delimitMate_expand_cr=1
 let g:delimitMate_expand_space=1
 let g:delimitMate_balance_matchpairs=1
-
-" vimtex
-let g:tex_flavor='latex'
-let g:vimtex_view_method='skim'
-let g:vimtex_quickfix_mode=0
-let g:vimtex_imaps_enabled=0
-
-" vim-markdown
-let g:vim_markdown_folding_disabled=1
-
-" Python syntax
-let g:python_highlight_all=1
-
-" Airline
-let g:airline_powerline_fonts=0
-let g:airline_theme='dracula'
-
-" Dracula colorscheme
-set termguicolors
-colorscheme dracula
 
 "
 " Mappings
@@ -106,12 +37,6 @@ colorscheme dracula
 
 " noh
 nnoremap <silent> <esc><esc> :nohlsearch<CR>
-
-" the_silver_searcher
-nnoremap <silent> <c-f> :Ag<CR>
-
-" fzf
-nnoremap <silent> <c-p> :Files<CR>
 
 " Jump visual lines, not physical
 nnoremap k gk
@@ -172,7 +97,7 @@ set smartcase
 
 " Status line
 set showcmd
-set ch=1
+set cmdheight=1
 set wildmenu
 set wcm=<TAB>
 
@@ -204,7 +129,3 @@ set updatetime=300
 
 " Disable 'Pattern not found' messages
 set shortmess+=c
-
-" Render tabs and spaces
-set listchars=space:•,tab:-->
-set list

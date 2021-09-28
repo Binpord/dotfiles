@@ -1,5 +1,5 @@
 " specify nvim python so that I can use vim whilst in venv
-let g:python3_host_prog='/Users/binpord/miniconda3/envs/pynvim/bin/python'
+let g:python3_host_prog='/Users/binpord/miniforge3/envs/pynvim/bin/python'
 
 "
 " vim-plug

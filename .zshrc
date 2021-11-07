@@ -22,7 +22,7 @@ export SSH_AUTH_SOCK=$SOCK
 #
 # Oh-my-zsh
 #
-export plugins=(tmux git vi-mode)
+export plugins=()
 source $ZSH/oh-my-zsh.sh
 
 #
@@ -38,6 +38,5 @@ fi
 #
 # Sources
 #
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh || true
 [ -f $HOME/.custom.zsh ] && source $HOME/.custom.zsh || true
 

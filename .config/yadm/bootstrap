@@ -6,7 +6,7 @@ if [ "$system_type" = "Darwin" ]; then
 
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
 
   if [ -f "$HOME/.Brewfile" ]; then
@@ -22,7 +22,7 @@ if [ "$system_type" = "Darwin" ]; then
 
   if command -v vim >/dev/null 2>&1; then
     echo "Bootstraping Vim"
-    curl --create-dirs -fsSLo "$HOME/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plugvim"
+    curl --create-dirs -fsSLo "$HOME/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim"
     vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
   fi
 
@@ -33,7 +33,13 @@ if [ "$system_type" = "Darwin" ]; then
 
   if [ ! -d "$HOME/miniconda" ]; then
     echo "Installing Miniconda"
-    curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o "$HOME/miniconda.sh"
+    system_arch=$(arch)
+    if [ "$system_arch" = "arm64" ]; then
+        curl -fsSL https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh -o "$HOME/miniconda.sh"
+    else
+        curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o "$HOME/miniconda.sh"
+    fi
+
     bash "$HOME/miniconda.sh" -b
     rm "$HOME/miniconda.sh"
     conda create -n pynvim -c conda-forge pynvim

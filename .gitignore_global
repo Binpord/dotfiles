@@ -1,6 +1,5 @@
+CMake*
 !CMakeLists.txt
-*.aux
-*.bib.*
 *.dSYM
 *.ipynb_checkpoints
 *.log
@@ -11,8 +10,18 @@
 .pdbrc
 .venv
 .vscode
-CMake*
 __pycache__
 a.out
 lib*
 tags
+
+# LaTeX
+*.aux
+*.fdb_latexmk
+*.fls
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.bib.*

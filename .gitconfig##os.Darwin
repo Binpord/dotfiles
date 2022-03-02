@@ -5,8 +5,10 @@
     username = Binpord
 [core]
     excludesfile = ~/.gitignore_global
-    editor = nvim
+    editor = vim
 [credential]
 	helper = osxkeychain
 [init]
 	defaultBranch = main
+[pull]
+	ff = only

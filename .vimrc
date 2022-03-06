@@ -20,6 +20,23 @@ Plug 'Raimondi/delimitMate'
 " Auto insert fi/done in bash scripts
 Plug 'tpope/vim-endwise'
 
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Gruvbox
+Plug 'morhetz/gruvbox'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Tmux
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 "
@@ -30,6 +47,10 @@ call plug#end()
 let g:delimitMate_expand_cr=1
 let g:delimitMate_expand_space=1
 let g:delimitMate_balance_matchpairs=1
+
+" Airline
+let g:airline_powerline_fonts=1
+let g:airline_theme='gruvbox'
 
 "
 " Mappings
@@ -69,6 +90,13 @@ command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 "
 " General Settings
 "
+
+" Colorscheme
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+set background=light
+colorscheme gruvbox
 
 " Lines
 set number

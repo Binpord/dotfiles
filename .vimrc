@@ -21,8 +21,8 @@ Plug 'tpope/vim-endwise'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Gruvbox
-Plug 'morhetz/gruvbox'
+" OneDark
+Plug 'joshdick/onedark.vim'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -46,8 +46,14 @@ let g:delimitMate_expand_space=1
 let g:delimitMate_balance_matchpairs=1
 
 " Airline
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
+
+" colnr symbol is missing in Menlo
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.colnr = "\u33c7"
 
 "
 " Mappings
@@ -89,11 +95,8 @@ command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 "
 
 " Colorscheme
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-set background=light
-colorscheme gruvbox
+colorscheme onedark
 
 " Lines
 set number

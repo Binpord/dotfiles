@@ -1,3 +1,6 @@
+" specify nvim python so that I can use vim whilst in venv
+let g:python3_host_prog='/Users/binpord/miniconda3/envs/pynvim/bin/python'  
+
 "
 " vim-plug
 "
@@ -33,6 +36,9 @@ Plug 'tpope/vim-fugitive'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
+
+" Python
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 call plug#end()
 

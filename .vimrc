@@ -38,7 +38,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Python
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 

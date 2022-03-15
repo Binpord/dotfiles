@@ -8,7 +8,9 @@ export EDITOR="vim"
 export KEYTIMEOUT=1
 export DISABLE_AUTO_TITLE=true
 export ZSH_THEME="robbyrussell"
-export ZSH_TMUX_AUTOSTART=true
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+    export ZSH_TMUX_AUTOSTART=true
+fi
 
 #
 # Tmux ssh agent forwarding fix

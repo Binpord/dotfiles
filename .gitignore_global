@@ -25,3 +25,5 @@ tags
 *.synctex.gz
 *.toc
 *.bib.*
+*.blg
+*.bbl

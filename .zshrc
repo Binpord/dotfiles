@@ -8,9 +8,14 @@ export EDITOR="vim"
 export KEYTIMEOUT=1
 export DISABLE_AUTO_TITLE=true
 export ZSH_THEME="robbyrussell"
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+
+# Autostart tmux if inside ssh session
+if [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
     export ZSH_TMUX_AUTOSTART=true
 fi
+# if [[ "$TERM_PROGRAM" != "vscode" && "$TERM_PROGRAM" != "PyCharm" ]]; then
+#     export ZSH_TMUX_AUTOSTART=true
+# fi
 
 #
 # Tmux ssh agent forwarding fix
@@ -24,7 +29,7 @@ export SSH_AUTH_SOCK=$SOCK
 #
 # Oh-my-zsh
 #
-export plugins=(tmux)
+export plugins=(tmux git)
 source $ZSH/oh-my-zsh.sh
 
 if type nvim > /dev/null; then
